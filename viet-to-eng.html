@@ -1,38 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vietnamese Duolingo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
     <style>
+        body {
+            text-align: center;
+            margin: 20px 20px 20px 20px;
+        }
 
         .center {
             margin: auto
         }
+
         #mascot {
             width: 100%;
             position: relative;
             display: inline;
             height: 500px;
         }
+
         #hat {
             position: absolute;
             width: 200px;
             left: 25%;
         }
+        .speechRecogContainer {
+            background-color: aliceblue;
+            width: 100%;
+            text-align: left;
+        }
     </style>
 </head>
-<body style="text-align: center;">
+
+<body>
     <h1>Test your Vietnamese!</h1>
     <div id="mascot">
-        <img id="bear" class="center" src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-polar-bear-animal-cute-white-transparent-png-image_6655699.png">
-        <img id=hat class="center" src="https://static.vecteezy.com/system/resources/thumbnails/021/594/330/small_2x/asian-conical-straw-hat-png.png">
+        <img id="bear" class="center"
+            src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-polar-bear-animal-cute-white-transparent-png-image_6655699.png">
+        <img id=hat class="center"
+            src="https://static.vecteezy.com/system/resources/thumbnails/021/594/330/small_2x/asian-conical-straw-hat-png.png">
+    </div>
+
+    <br>
+    <h3>Instructions</h3>
+    <p>Click to listen to the Vietnamese word as many times as needed and say the correct English translation of that
+        word.</p>
+
+    <div class="complete">
     </div>
     
-    <h3>Listen to the Viet Word</h3>
-    <button type="button" class="btn btn-default">Vietnamese Word</button>
-    <script src="duo.js"></script>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="sayIt()">Listen to the Vietnamese Word</button>
+
+    <br>
+    <div class="speechRecogContainer container-fluid">
+        <div class="row">
+            <div class="btn-toolbar col">
+                <h5>Start and Stop Recording</h5>
+                <button type="button" class="btn btn-secondary btn-block" id="start-button">Start</button>
+                <button type="button" class="btn btn-danger btn-block" id="stop-button">Stop</button>
+            </div>
+            <div class="col">
+                <h5>Recorded Input</h5>
+                <p><strong>In-Progress Recording: </strong><span id="heardInProgress"></span></p>
+                <p><strong>Final Recording: </strong><span id="heard"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <h3>Score Progress (<span id="score">0</span>/6)</h3>
+    <div class="scoreContainer">
+        <div id="alertIcon"></div>
+        <div class="progress">
+            <div id="curScore" class="progress-bar" style="width: 0%;"></div>
+        </div>
+    </div>
+
+    <script src="js/duo.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
