@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Text to Speech!</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <button id="speak-button" onclick="sayIt()">Say something!</button>
+    <button id="log-voices-button" onclick="logVoices()">Possible voices in console!</button>
+    
+    <button id="start-button">Start</button>
+    <button id="stop-button">Stop</button>
+
+    <h2>Listening in Progress</h2>
+    <span id="heardInProgress"></span>
+    <h2>What I Heard</h2>
+    <span id="heard"></span>
+
+    <script src="js/duo.js"></script>
+    <script src="js/listen.js"></script>
+</body>
+</html>
+
